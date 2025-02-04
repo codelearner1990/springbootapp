@@ -1,0 +1,17 @@
+toxiproxy-cli toxic add -n latency -t latency -a latency=3000 -a jitter=500 -p Springboot8080
+toxiproxy-cli toxic add -n bandwidth -t bandwidth -a rate=50 -p Springboot8080
+toxiproxy-cli toxic add -n connection_fail -t reset_peer -a probability=50 -p Springboot8080
+toxiproxy-cli toxic add -n timeout -t timeout -a timeout=10000 -p Springboot8080
+toxiproxy-cli toxic add -n slicer -t slicer -a average_size=100 -a size_variation=50 -a chance=10 -p Springboot8080
+toxiproxy-cli toxic add -n limiter -t limit_data -a bytes=1048576 -p Springboot8080
+
+
+{
+  "name": "latency",
+  "type": "latency",
+  "stream": "downstream",
+  "attributes": {
+    "latency": 3000,
+    "jitter": 500
+  }
+}
